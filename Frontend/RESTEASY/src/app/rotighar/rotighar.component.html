@@ -1,0 +1,11 @@
+<div *ngFor="let menu of items | async">
+
+    <div class="col-md-3">
+        <img src="assets/images/{{menu.img_url}}" /><br>
+        <h4>{{menu.dishname}}</h4>
+        <p>{{menu.dishprice | currency: 'INR'}}</p>
+        <button class="btn btn-primary" id={{menu.dishid}} [disabled]="isAdded(menu)" (click)="OnAddCart(menu)">Add to
+            Cart</button>
+    </div>
+
+</div>

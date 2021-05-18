@@ -1,0 +1,65 @@
+<div class="card rounded-0">
+
+    <div class="card-body">
+
+        <div class="modal-content" style="width:400px;height:570px; margin-left: 350px;">
+            <div class="modal-header">
+                <img src="assets/images/logo.gif" style="width: 80px; height: 80px; border-radius: 50%;">
+            </div>
+
+            <div class="modal-body" style="padding: 15px 50px;">
+                <form method="post" #register="ngForm">
+                    <h3 style="margin-top:0px; margin-bottom: 20px;">Create Account</h3>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control rounded-0" name="username" placeholder="Email" required
+                            [(ngModel)]="customer.username" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+                        <div *ngIf="username.errors && (username.invalid && username.touched)">
+                            <small class="text-danger" *ngIf="username.errors.required">Email Id is required</small>
+                            <small class="text-danger" *ngIf="username.errors.pattern"> Enter the valid Email Id</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control rounded-0" name="password" placeholder="Password"
+                            required [(ngModel)]="customer.password" #password="ngModel" minlength="8"
+                            [class.is-invalid]="password.invalid && password.touched">
+                        <div *ngIf="password.errors && (password.invalid && password.touched)">
+                            <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                            <small class="text-danger" *ngIf="password.errors.minlength">Password must be 8
+                                digit</small>
+                        </div>
+                    </div>
+
+                    <span><i class="fas fa-check"></i>&nbsp;At least 8 character(s)</span>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-0" name="firstname" placeholder="First name"
+                            required minlength="2" [(ngModel)]="customer.firstname" #firstname="ngModel"
+                            [class.is-invalid]="firstname.invalid && firstname.touched">
+                        <div *ngIf="firstname.errors && (firstname.invalid && firstname.touched)">
+                            <small class="text-danger" *ngIf="firstname.errors.required"> First Name is required</small>
+                            <small class="text-danger" *ngIf="firstname.errors.minlength"> First Name is invalid</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-0" name="lastname" placeholder="Last name"
+                            required minlength="2" [(ngModel)]="customer.lastname" #lastname="ngModel"
+                            [class.is-invalid]="lastname.invalid && lastname.touched">
+                        <div *ngIf="lastname.errors && (lastname.invalid && lastname.touched)">
+                            <small class="text-danger" *ngIf="lastname.errors.required">Last Name is required
+                                field</small>
+                            <small class="text-danger" *ngIf="lastname.errors.minlength">Last Name is invalid</small>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" [disabled]="register.invalid"
+                        (click)=onSubmit()>Register</button>
+                </form>
+                <a routerLink="/login">Back to Sign In</a>
+            </div>
+        </div>
+    </div>
+</div>

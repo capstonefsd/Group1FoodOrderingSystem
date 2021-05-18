@@ -1,0 +1,21 @@
+<form (ngSubmit)="searchSubmit()">
+    <input type="text" class="search-text" placeholder="Search" size=40 name="dishname" [(ngModel)]="dishname" />
+    <a><button class="btn search-btn">Search</button></a>
+</form>
+
+<br>
+<div>
+    <h3>Results</h3>
+    <hr>
+</div>
+
+<div *ngFor="let menu of dishes">
+
+    <div class="col-md-3">
+        <img src="assets/images/{{menu.img_url}}" /><br>
+        <h4>{{menu.dishname}}</h4>
+        <p>{{menu.dishprice | currency: 'INR'}}</p>
+        <button class="btn btn-primary" (click)="OnAddCart(menu)">Add to Cart</button>
+    </div>
+
+</div>

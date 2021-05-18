@@ -1,0 +1,12 @@
+img {
+  width: 90px;
+  height: 90px;
+}
+
+div {
+  text-align: center;
+}
+
+label {
+  float: left;
+}

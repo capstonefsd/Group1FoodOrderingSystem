@@ -1,0 +1,37 @@
+nav {
+  overflow-x: hidden;
+}
+ul {
+  padding: 20px;
+  background-color: cadetblue;
+}
+input:focus {
+  outline: none;
+}
+a i {
+  color: white;
+  margin-top: 5px;
+  font-size: 20px;
+}
+.btn-login {
+  float: right;
+  margin-right: 50px;
+}
+.btn:focus {
+  outline: none;
+}
+img {
+  width: 90px;
+  height: 90px;
+}
+.logo {
+  padding-left: 0;
+}
+.welcome-text {
+  color: white;
+}
+.btn {
+  border-radius: 5px;
+  margin-right: 80px;
+  margin-left: 30px;
+}

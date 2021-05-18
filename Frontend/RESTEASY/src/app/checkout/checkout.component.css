@@ -1,0 +1,14 @@
+.form-control {
+  width: 500px;
+}
+.container {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+label {
+  color: rgb(110, 105, 105);
+  font-weight: lighter;
+}
+.text-center {
+  margin-left: -180px;
+}

@@ -1,0 +1,35 @@
+<div class="card rounded-0">
+
+    <div class="card-body">
+
+        <div class="modal-content" style="width:400px;height:500px; margin-left: 350px;">
+            <div class="modal-header">
+                <img src="assets/images/logo.gif"
+                    style="width: 100px; height: 100px; border-radius: 50%;margin-top: 20px; margin-bottom: 10px;">
+
+            </div>
+            <div class="modal-body">
+                <form method="post" #userlogin="ngForm">
+                    <h3 style="margin-top:0px; margin-bottom: 20px;">Sign In</h3>
+                    <div class="form-group">
+                        <label>Username:</label><br>
+                        <input type="text" class="form-control rounded-0" name="username" [(ngModel)]="username"
+                            placeholder="Enter User name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password: </label>
+                        <input type="password" class="form-control rounded-0" name="password" [(ngModel)]="password"
+                            placeholder="Enter Password" required>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="button" class="btn btn-primary" [disabled]="userlogin.invalid"
+                            (click)=checkLogin()>Login</button>
+                    </div>
+                    <hr>
+                    <p>Don't have account? <a routerLink="/register">SignUp</a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

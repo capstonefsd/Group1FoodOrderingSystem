@@ -1,0 +1,31 @@
+img {
+  width: 200px;
+  height: 200px;
+}
+.col-md-3 {
+  padding-top: 18px;
+}
+
+.search-text {
+  border-radius: 10px;
+  padding: 5px 9px 5px 9px;
+  border: none;
+  margin-right: 10px;
+  height: 35px;
+  background-color: rgba(95, 95, 95, 0.096);
+  color: black;
+}
+.search-btn {
+  border-radius: 10px;
+  border: none;
+  height: 35px;
+  width: 80px;
+  background-color: rgb(96, 163, 202);
+  color: white;
+}
+input:focus {
+  outline: none;
+}
+.btn:focus {
+  outline: none;
+}

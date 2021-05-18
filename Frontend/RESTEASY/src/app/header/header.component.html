@@ -1,0 +1,29 @@
+<nav class="navbar navbar">
+  <div class="container-fluid">
+    <div class="navbar-header col-sm-1 logo">
+      <img src="assets/images/logo.gif" />
+    </div>
+    <ul class="nav navbar-nav col-sm-11 menu">
+      <div class="col-sm-6">
+        <a href="#"><button class="btn">About Us</button></a>
+        <a routerLink="/search"><button class="btn search-btn">Search</button></a>
+        <a href="contact.html"><button class="btn">Contact</button></a>
+      </div>
+      <div class="col-sm-2">
+        <a routerLink="/cart">
+          <span class="badge rounded-pill badge-notification bg-danger">{{cartItem}}</span>
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+      <div class="col-sm-4">
+        <a *ngIf="!customerlogin.isUserLoggedIn()" routerLink="/login" class="nav-link"
+          routerLinkActive="active"><button class="btn btn-login">Login</button></a>
+      </div>
+      <!-- Displays the welcome text only when user is logged in -->
+      <div class="col-sm-3"><span *ngIf="customerlogin.isUserLoggedIn()" class="welcome-text ">Welcome
+          {{customerlogin.username}}</span></div>
+      <div class="col-sm-1"><a *ngIf="customerlogin.isUserLoggedIn() " routerLink="/logout"><button
+            class="btn btn-logout">Logout</button></a></div>
+    </ul>
+  </div>
+</nav>

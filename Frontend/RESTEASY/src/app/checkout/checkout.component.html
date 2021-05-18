@@ -1,0 +1,186 @@
+<div class="container">
+    <form class="form-horizontal" #buy="ngForm">
+        <!-- Customer Details -->
+        <div class="form-group">
+            <h3>Customer Details</h3>
+            <label class="control-label col-sm-2">First Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="firstname" size=40 minlength="2"
+                    [(ngModel)]="customer.firstname" required #firstname="ngModel"
+                    [class.is-invalid]="firstname.invalid && firstname.touched">
+                <div *ngIf="firstname.errors && (firstname.invalid && firstname.touched)">
+                    <small class="text-danger" *ngIf="firstname.errors.required"> First Name is required</small>
+                    <small class="text-danger" *ngIf="firstname.errors.minlength"> First Name is invalid</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Last Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="lastname" size=40 minlength="2"
+                    [(ngModel)]="customer.lastname" required #lastname="ngModel"
+                    [class.is-invalid]="lastname.invalid && lastname.touched">
+                <div *ngIf="lastname.errors && (lastname.invalid && lastname.touched)">
+                    <small class="text-danger" *ngIf="lastname.errors.required">Last Name is required field</small>
+                    <small class="text-danger" *ngIf="lastname.errors.minlength">Last Name is invalid</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" size=40 [(ngModel)]="customer.username" required
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #username="ngModel"
+                    [class.is-invalid]="username.invalid && username.touched">
+                <div *ngIf="username.errors && (username.invalid && username.touched)">
+                    <small class="text-danger" *ngIf="username.errors.required">Email Id is required</small>
+                    <small class="text-danger" *ngIf="username.errors.pattern"> Enter the valid Email Id</small>
+                </div>
+            </div>
+        </div>
+        <!-- Delivery Address -->
+        <div>
+            <h3>Delivery Address</h3>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Country</label>
+                <div class="col-sm-10">
+                    <select id="country" class="form-control" name="country" [(ngModel)]="address.country">
+                        <option value="India">India</option>
+                        <option value="Spain">Spain</option>
+                        <option value="France">France</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Street</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="street" size=40 minlength="6"
+                        [(ngModel)]="address.street" required #street="ngModel"
+                        [class.is-invalid]="street.invalid && street.touched">
+                    <div *ngIf="street.errors && (street.invalid && street.touched)">
+                        <small class="text-danger" *ngIf="street.errors.required">Street name is required</small>
+                        <small class="text-danger" *ngIf="street.errors.minlength">Street name is invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">City</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="city" size=40 minlength="3" [(ngModel)]="address.city"
+                        required #city="ngModel" [class.is-invalid]="city.invalid && city.touched">
+                    <div *ngIf="city.errors && (city.invalid && city.touched)">
+                        <small class="text-danger" *ngIf="city.errors.required">City name is required</small>
+                        <small class="text-danger" *ngIf="city.errors.minlength">City name is invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">State</label>
+                <div class="col-sm-10">
+                    <select id="state" class="form-control" name="state" [(ngModel)]="address.state">
+                        <option value="AndhraPradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="TamilNadu">Tamil Nadu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Zip Code</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="zipcode" maxlength="6" pattern="^[0-9]{6}$" size=40
+                        required [(ngModel)]="address.zipcode" #zipcode="ngModel">
+                    <div *ngIf="zipcode.errors && (zipcode.invalid && zipcode.touched)">
+                        <small class="text-danger" *ngIf="zipcode.errors.required">ZipCode is required field</small>
+                        <small class="text-danger" *ngIf="zipcode.errors.pattern">Zip Code is invalid</small>
+                        <small class="text-danger" *ngIf="zipcode.errors.maxlength">Zip Code is 6 digits</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card Details -->
+        <div>
+            <h3>Card Details</h3>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Card Type</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <option value="Visa">Visa</option>
+                        <option value="MasterCard">Master Card</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Name on Card</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" size=40 minlength="2" required
+                        [(ngModel)]="card.cardname" #cardname="ngModel"
+                        [class.is-invalid]="cardname.invalid && cardname.touched">
+                    <div *ngIf="cardname.errors && (cardname.invalid && cardname.touched)">
+                        <small class="text-danger" *ngIf="cardname.errors.required">Name is required field</small>
+                        <small class="text-danger" *ngIf="cardname.errors.minlength">Name is invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Card Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="cardnum" maxlength="16" size=40
+                        [(ngModel)]="card.cardnum" pattern="^[0-9]{16}$" required #cardnum="ngModel">
+                    <div *ngIf="cardnum.errors && (cardnum.invalid && cardnum.touched)">
+                        <small class="text-danger" *ngIf="cardnum.errors.required">Card Number is required field</small>
+                        <small class="text-danger" *ngIf="cardnum.errors.pattern">Card Number is invalid</small>
+                        <small class="text-danger" *ngIf="cardnum.errors.maxlength">Card Number is 16 digits</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">CVV</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="securitycode" maxlength="3" size=40
+                        [(ngModel)]="card.cvv" pattern="^[0-9]{3}$" required #cvv="ngModel">
+                    <div *ngIf="cvv.errors && (cvv.invalid && cvv.touched)">
+                        <small class="text-danger" *ngIf="cvv.errors.required">CVV is required field</small>
+                        <small class="text-danger" *ngIf="cvv.errors.pattern">CVV Number is invalid</small>
+                        <small class="text-danger" *ngIf="cvv.errors.maxlength">CVV Number is 3 digits</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Expiry Month</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Expiry Year</label>
+                <div class="col-sm-10">
+                    <select class="form-control">
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" [routerLink]="['/']" [disabled]="buy.invalid"
+                    (click)="OnSubmit()">Proceed</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+div {
+  text-align: center;
+}
+.form-control {
+  border-radius: 0;
+}
+span {
+  float: left;
+  margin-bottom: 20px;
+  color: rgb(143, 143, 143);
+}
+span i {
+  color: black;
+}
+a {
+  color: black;
+  float: left;
+  margin-top: 10px;
+}
